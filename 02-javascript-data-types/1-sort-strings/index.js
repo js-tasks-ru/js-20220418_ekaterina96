@@ -1,3 +1,4 @@
+//Tatarnikova Ekaterina
 /**
  * sortStrings - sorts array of string by two criteria "asc" or "desc"
  * @param {string[]} arr - the array of strings
@@ -5,5 +6,17 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
+	
+	let newArray = arr.slice();
+	newArray.sort( function(a,b) {
+		return a.localeCompare(b, ['ru-RU', 'en-US'], {caseFirst: "upper"});
+  
+	});
+  
+	if (param === 'desc') {
+		newArray.reverse();  
+	} 
+  
+	return newArray;
 
 }
