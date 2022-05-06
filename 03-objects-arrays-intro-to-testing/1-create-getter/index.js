@@ -5,4 +5,15 @@
  */
 export function createGetter(path) {
 
+	return function (product) {
+		
+		let array = path.split('.');
+		let obj = {};
+		Object.assign(obj, product);
+		for (let prop of array) {
+			obj = obj[prop];
+			if (typeof(obj) === 'undefined') return undefined;
+		}
+		return obj;
+	}
 }
